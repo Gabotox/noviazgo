@@ -1,3 +1,5 @@
+var video = document.getElementById('miVideo');
+video.play();
 var movimientos = 0;
 
 function acciónporsidicequesi() {
@@ -6,10 +8,13 @@ function acciónporsidicequesi() {
         imageUrl: "assets/img/giphy.gif",
         imageWidth: 400,
         imageHeight: 400,
-        timer: 3000,
-        timerProgressBar: true
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false
     }).then((result) => {
-        window.location.href = "https://facebook.com";
+        if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.href = "love.html";
+        }
     });
 }
 
@@ -21,8 +26,8 @@ function movimientodeboton() {
     var buttonWidth = document.getElementById('btnNo').offsetWidth;
     var buttonHeight = document.getElementById('btnNo').offsetHeight;
 
-    var newLeft = Math.random() * (width - buttonWidth); // Calcula la nueva posición horizontal del botón
-    var newTop = Math.random() * (height - buttonHeight); // Calcula la nueva posición vertical del botón
+    var newLeft = Math.random() * (width - buttonWidth);
+    var newTop = Math.random() * (height - buttonHeight);
 
     var btnNo = document.getElementById('btnNo');
     btnNo.style.position = "absolute";
@@ -34,20 +39,25 @@ function movimientodeboton() {
     if (movimientos > 2) {
         Swal.fire({
             imageUrl: "assets/img/dedo-del-corazon.png",
-            imageWidth: 200,
-            imageHeight: 200,
-            title: "¿ENTONCES, NOJODA?",
+            imageWidth: 150,
+            imageHeight: 150,
+            title: "¿CUÁL ES EL VIAJE?",
             text: "¿ME VAS A ACEPTAR O NO?",
-            allowOutsideClick: false, // Evitar que la alerta se cierre al hacer clic fuera de ella
-            timer: 2000, 
+            allowOutsideClick: false,
+            timer: 2000,
+            showConfirmButton: false
         })
 
-        if(movimientos > 4) {
+        if (movimientos > 3) {
             Swal.fire({
-                title: "¡AHORA TE JODES, AHORA NO HABRÁ BOTÓN DE NO!",
-                allowOutsideClick: false, // Evitar que la alerta se cierre al hacer clic fuera de ella
-                timer: 3000, 
-            }) 
+                imageUrl: "assets/img/triste.png",
+                imageWidth: 100,
+                imageHeight: 100,
+                title: "¡JOAAAA, AHORA QUITO EL BOTÓN DE NO!",
+                allowOutsideClick: false,
+                timer: 4000,
+                showConfirmButton: false
+            })
             btnNo.style.display = "none";
         }
     }
