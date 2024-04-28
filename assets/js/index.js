@@ -3,14 +3,15 @@ var movimientos = 0;
 function acciónporsidicequesi() {
     Swal.fire({
         title: "¡Yo sabía que querías!",
-        imageUrl: "https://i.pinimg.com/564x/35/b6/53/35b65327cc405cd0dd70102ff07ba485.jpg",
+        imageUrl: "assets/img/giphy.gif",
         imageWidth: 400,
-        imageHeight: 200,
-      });
+        imageHeight: 400,
+        timer: 3000,
+    });
 }
 
 
-function movimientodeboton(){
+function movimientodeboton() {
     var width = window.innerWidth;
     var height = window.innerHeight;
 
@@ -28,20 +29,17 @@ function movimientodeboton(){
 
     if (movimientos > 2) {
         Swal.fire({
+            imageUrl: "assets/img/dedo-del-corazon.png",
+            imageWidth: 200,
+            imageHeight: 200,
             title: "¿ENTONCES, NOJODA?",
             text: "¿ME VAS A ACEPTAR O NO?",
-            showCancelButton: true, // Mostrar el botón de cancelar
-            cancelButtonText: "Cancelar", // Texto del botón de cancelar
-            confirmButtonText: "Aceptar" // Texto del botón de confirmar
+            allowOutsideClick: false, // Evitar que la alerta se cierre al hacer clic fuera de ella
+            timer: 2000, 
         }).then((result) => {
-            if (result.isConfirmed) { // Si el usuario hace clic en "Aceptar"
-                // Aquí puedes agregar el código que quieras ejecutar después de que el usuario acepte la alerta
-                movimientos = 0; // Reiniciar el contador de movimientos
-                window.location.reload();
-            } else { // Si el usuario hace clic en "Cancelar" o cierra la alerta
-                // Aquí puedes agregar el código que quieras ejecutar si el usuario cancela la alerta
+            if (result.isConfirmed) {
+                
             }
         });
     }
-
 }

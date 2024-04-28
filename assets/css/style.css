@@ -134,3 +134,8 @@ a i {
     font-size: 1.3rem;
     border-radius: var(--bordes-btn);
 }
+
+
+#btnNo {
+    z-index: 999 !important;
+}
